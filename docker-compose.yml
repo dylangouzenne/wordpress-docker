@@ -16,7 +16,7 @@ services:
       - ./wordpress:/var/www/html
 
   db:
-    build: .
+    from: mysql:5.7
     restart: always
     environment:
       MYSQL_DATABASE: exampledb
