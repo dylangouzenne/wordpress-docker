@@ -5,8 +5,11 @@
 * Cloner le projet dans un répertoire local : 
 `git clone git@gitlab-simplon.akiros.school:adebande/wordpress-docker.git`
 * Naviguer dans le dossier du projet et lancer docker-compose : 
-`cd wordpress && docker-compose up -d`
+`cd wordpress-docker && docker-compose up -d`
 * Une fois les conteneurs lancés, le site sera accessible à l'adresse http://localhost:8080
+* Pour stopper les conteneurs :
+`docker-compose down`
+
 
 ## Régler les problèmes de permissions
 
