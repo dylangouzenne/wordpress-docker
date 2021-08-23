@@ -1,5 +1,11 @@
 # wordpress-docker
 
+Ce projet a pour but de mettre à disposition des équipes dev et marketing un environnement de developpement contenant les services nécessaires à l'éxécution de Wordpress en local.
+
+## Prérequis
+
+Un système Linux sur lequel des versions à jour de Git, Docker et Docker Compose sont installés. 
+
 ## Mettre en place l'environnement local 
 
 * Cloner le projet dans un répertoire local : <br/>
