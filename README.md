@@ -2,11 +2,13 @@
 
 ## Environnement de développement local 
 
-* Cloner le projet dans un répertoire local : `git clone git@gitlab-simplon.akiros.school:adebande/wordpress-docker.git`
-* Naviguer dans le dossier du projet et lancer docker-compose : `cd wordpress && docker-compose up -d`
+* Cloner le projet dans un répertoire local : 
+`git clone git@gitlab-simplon.akiros.school:adebande/wordpress-docker.git`
+* Naviguer dans le dossier du projet et lancer docker-compose : 
+`cd wordpress && docker-compose up -d`
 * Une fois les conteneurs lancés, le site sera accessible à l'adresse http://localhost:8080
 
-### Régler les problèmes de permissions
+## Régler les problèmes de permissions
 
 Si vous rencontrez des erreurs du type "permission denied" lors de l'édition ou la lecture de certains fichiers, exécutez la commande suivante : `sudo chmod +x ./scripts/permissions.sh && sudo ./scripts/permissions.sh`
 
