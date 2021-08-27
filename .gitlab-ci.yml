@@ -2,4 +2,4 @@ image: amazon/aws-cli:latest
 
 
 Deploys-to-s3:
-    script: aws deploy push --application-name wp-prod-g1 --s3-location s3://s3-groupe-1/
+    script: push --application-name wp-prod-g1 --s3-location s3://s3-groupe-1/
