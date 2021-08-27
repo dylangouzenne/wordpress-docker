@@ -1,4 +1,4 @@
-image: amazon/aws-cli
+image: amazon/aws-cli:latest
 
 
 Deploys-to-s3:
