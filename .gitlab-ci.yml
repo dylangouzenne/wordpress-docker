@@ -5,3 +5,4 @@ Deploys-to-s3:
     script:
         - aws --version
         - aws deploy push --application-name wp-prod-g1 --s3-location s3://s3-groupe1/toto --source ./
+        - aws create-deployment --application-name wp-prod-g1 --s3-location s3://s3-groupe1/toto
