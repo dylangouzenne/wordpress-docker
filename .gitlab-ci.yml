@@ -1,0 +1,5 @@
+image: amazon/aws-cli
+
+
+Deploys-to-s3:
+    script: aws deploy push --application-name wp-prod-g1 --s3-location s3://prod 
