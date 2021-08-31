@@ -1,6 +1,11 @@
 image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
 
+stages:
+    - push
+    - deploy
+
 Push-to-s3:
+    stage: push
     script:
         - sed -i -e 's/database_name_here/exampledb/' ./wordpress/wp-config-sample.php
         - sed -i -e 's/username_here/exampleuser/' ./wordpress/wp-config-sample.php
@@ -12,6 +17,7 @@ Push-to-s3:
         - aws deploy push --application-name wp-prod-g1 --s3-location s3://s3-groupe1/toto.zip --source ./
 
 Deploy-to-ec2:
+    stage: deploy
     script:
         - aws --version
         - aws deploy create-deployment --application-name wp-prod-g1 --deployment-group-name production-g1 --s3-location bucket=s3-groupe1,bundleType=zip,key=toto.zip --region eu-north-1
