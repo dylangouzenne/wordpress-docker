@@ -1,6 +1,16 @@
 image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
 
 
+Set-env-prod:
+    script:
+        - sed 's/database_name_here/exampledb/' ./wordpress/wp-config-sample.php
+        - sed 's/username_here/exampleuser/' ./wordpress/wp-config-sample.php
+        - sed 's/password_here/examplepass/' ./wordpress/wp-config-sample.php
+        - sed 's/localhost/db-groupe1.cycsrehdk0xg.eu-north-1.rds.amazonaws.com:3306/' ./wordpress/wp-config-sample.php
+        - rm ./wordpress/wp-config.php
+        - mv ./wordpress/wp-config-sample.php ./wordpress/wp-config.php
+        
+
 Deploys-to-s3:
     script:
         - aws --version
