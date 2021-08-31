@@ -10,7 +10,7 @@ Push-to-s3:
         - sed -i -e "s/database_name_here/$DB_NAME/" ./wordpress/wp-config-sample.php
         - sed -i -e "s/username_here/$DB_USER/" ./wordpress/wp-config-sample.php
         - sed -i -e "s/password_here/$DB_PASSWORD/" ./wordpress/wp-config-sample.php
-        - sed -i -e "s/localhost/$DB_HOST" ./wordpress/wp-config-sample.php
+        - sed -i -e "s/localhost/$DB_HOST/" ./wordpress/wp-config-sample.php
         - rm ./wordpress/wp-config.php
         - mv ./wordpress/wp-config-sample.php ./wordpress/wp-config.php
         - aws --version
