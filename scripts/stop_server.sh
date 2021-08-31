@@ -1,3 +1,3 @@
-#!bin/bash
+#!/bin/bash
 
 service apache2 stop
