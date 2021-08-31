@@ -7,17 +7,21 @@ stages:
 Push-to-s3:
     stage: push
     script:
-        - sed -i -e 's/database_name_here/exampledb/' ./wordpress/wp-config-sample.php
-        - sed -i -e 's/username_here/exampleuser/' ./wordpress/wp-config-sample.php
-        - sed -i -e 's/password_here/examplepass/' ./wordpress/wp-config-sample.php
-        - sed -i -e 's/localhost/db-groupe1.cycsrehdk0xg.eu-north-1.rds.amazonaws.com:3306/' ./wordpress/wp-config-sample.php
+        - sed -i -e "s/database_name_here/$DB_NAME/" ./wordpress/wp-config-sample.php
+        - sed -i -e "s/username_here/$DB_USER/" ./wordpress/wp-config-sample.php
+        - sed -i -e "s/password_here/$DB_PASSWORD/" ./wordpress/wp-config-sample.php
+        - sed -i -e "s/localhost/$DB_HOST" ./wordpress/wp-config-sample.php
         - rm ./wordpress/wp-config.php
         - mv ./wordpress/wp-config-sample.php ./wordpress/wp-config.php
         - aws --version
         - aws deploy push --application-name wp-prod-g1 --s3-location s3://s3-groupe1/toto.zip --source ./
+    only:
+        - main
 
 Deploy-to-ec2:
     stage: deploy
     script:
         - aws --version
         - aws deploy create-deployment --application-name wp-prod-g1 --deployment-group-name production-g1 --s3-location bucket=s3-groupe1,bundleType=zip,key=toto.zip --region eu-north-1
+    only:
+        - main
