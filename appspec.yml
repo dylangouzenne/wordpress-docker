@@ -10,7 +10,7 @@ hooks:
       timeout: 300
       runas: root
 
-  Install:
+  AfterInstall:
     - location: scripts/setup_db.sh
       timeout: 300
       runas: root

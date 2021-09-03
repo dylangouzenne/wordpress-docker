@@ -8,7 +8,7 @@ Push-to-s3:
     stage: push
     script:
         - aws --version
-        - aws deploy push --application-name wp-prod-g1 --s3-location s3://s3-groupe1/toto.zip --source ./
+        - aws deploy push --application-name wp-prod-g1 --s3-location s3://s3-groupe1/bundle.zip --source ./
     only:
         - main
 
@@ -16,6 +16,6 @@ Deploy-to-ec2:
     stage: deploy
     script:
         - aws --version
-        - aws deploy create-deployment --application-name wp-prod-g1 --deployment-group-name production-g1 --s3-location bucket=s3-groupe1,bundleType=zip,key=toto.zip --region eu-north-1
+        - aws deploy create-deployment --application-name wp-prod-g1 --deployment-group-name production-g1 --s3-location bucket=s3-groupe1,bundleType=zip,key=bundle.zip --region eu-north-1
     only:
         - main
