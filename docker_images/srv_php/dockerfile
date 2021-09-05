@@ -1,0 +1,32 @@
+FROM php:7.4-fpm
+
+WORKDIR /var/www/html
+
+COPY ./install_wp-cli.sh /
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        ca-certificates \
+        wget \
+        mariadb-client \
+        zlib1g-dev \
+        libpng-dev \
+        libjpeg-dev \
+        libfreetype6-dev \
+        libzip-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) \
+        gd \
+        bcmath \
+        exif \
+        mysqli \
+        zip \
+    && wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
+    && chmod +x wp-cli.phar \
+    && mv wp-cli.phar /usr/local/bin/wp \
+    && chmod +x /install_wp-cli.sh
+
+USER www-data
+
+ENTRYPOINT [ "/install_wp-cli.sh" ]
+
+CMD [ "php-fpm" ]

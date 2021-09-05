@@ -22,14 +22,14 @@ services:
         - "8080:80"
       volumes:
         - wordpress_data:/var/www/html
-        - ./nginx.conf:/etc/nginx/nginx.conf
+        - ./config/srv_wordpress/nginx.conf:/etc/nginx/nginx.conf
       restart: always
     
     php:
       depends_on:
         - mysql
       build:
-        context: ./
+        context: ./docker_images/srv_php/
       container_name: srv_php
       volumes:
         - wordpress_data:/var/www/html
