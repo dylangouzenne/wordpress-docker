@@ -8,7 +8,7 @@ Push-to-s3:
     stage: push
     script:
         - aws --version
-        - aws deploy push --application-name wp-prod-g1 --s3-location s3://s3-groupe1/bundle.zip --source ./
+        - aws deploy push --application-name wp-prod-g1 --s3-location s3://s3-groupe1/bundle.zip --source ./aws/
     only:
         - main
 
