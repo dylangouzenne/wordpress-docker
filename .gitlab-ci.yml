@@ -7,6 +7,8 @@ stages:
 Push-to-s3:
     stage: push
     script:
+        - cp ./docker_images/srv_php/install_wp-cli.sh ./aws/scripts/install_wp-cli.sh
+        - sed -i -e '/exec "$@"/d' ./aws/scripts/install_wp-cli.sh
         - aws --version
         - aws deploy push --application-name wp-prod-g1 --s3-location s3://s3-groupe1/bundle.zip --source ./aws/
     only:

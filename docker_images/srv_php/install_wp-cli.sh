@@ -4,7 +4,7 @@ set -u
 
 # Vérifier que le serveur MySQL et pret a réponde au requette avant de lancer l'install de wordpress
 cmpt=1
-until timeout 2 bash -c "echo 2> /dev/null >/dev/tcp/srv_mysql/3306" 
+until timeout 2 bash -c "echo 2> /dev/null >/dev/tcp/${MYSQL_HOST}/3306" 
 do
     echo -n "\rTest n°$cmpt ExitCode = $? Attente de réponse du serveur MySQL..."
     cmpt=$(($cmpt+1))
