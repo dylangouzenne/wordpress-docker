@@ -10,7 +10,7 @@ Push-to-s3:
         - cp ./docker_images/srv_php/install_wp-cli.sh ./aws/scripts/install_wp-cli.sh
         - sed -i -e '/exec "$@"/d' ./aws/scripts/install_wp-cli.sh
         - aws --version
-        - aws deploy push --application-name wp-prod-g1 --s3-location s3://s3-groupe1/bundle.zip --source ./aws/
+        - aws deploy push --application-name wp-prod-g1-dylan --s3-location s3://s3-groupe1-dylan/bundle.zip --source ./aws
     only:
         - dylan
 
