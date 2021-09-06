@@ -1,8 +1,5 @@
 version: 0.0
 os: linux
-files:
-  - source: /wordpress
-    destination: /var/www/html/
 
 hooks:
 
@@ -15,8 +12,6 @@ hooks:
     - location: scripts/set_env.sh
       timeout: 300
       runas: root
-
-  Install:
     - location: scripts/install_wp-cli.sh
       timeout: 300
       runas: www-data
