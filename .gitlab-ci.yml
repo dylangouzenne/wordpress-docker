@@ -4,6 +4,11 @@ stages:
     - push
     - deploy
 
+variables:
+    AWS_ACCESS_KEY_ID: '${DYLAN_AWS_ACCESS_KEY_ID}'
+    AWS_SECRET_ACCESS_KEY: '${DYLAN_AWS_SECRET_ACCESS_KEY}'
+
+
 Push-to-s3:
     stage: push
     script:
