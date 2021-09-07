@@ -20,6 +20,8 @@ Push-to-s3:
 Deploy-to-ec2:
     stage: deploy
     script:
+        - export $AWS_ACCESS_KEY_ID
+        - export $AWS_SECRET_ACCESS_KEY
         - aws --version
         - aws deploy create-deployment --application-name wp-prod-g1 --deployment-group-name production-g1 --s3-location bucket=s3-groupe1,bundleType=zip,key=bundle.zip --region eu-north-1
     only:
