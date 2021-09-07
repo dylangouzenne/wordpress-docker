@@ -18,6 +18,6 @@ Deploy-to-ec2:
     stage: deploy
     script:
         - aws --version
-        - aws deploy create-deployment --application-name wp-prod-g1-dylan --deployment-group-name production-g1-dylan --s3-location bucket=s3-groupe1-dylan,bundleType=zip,key=bundle.zip --region eu-north-1
+        - aws deploy create-deployment --application-name wp-prod-g1 --deployment-group-name production-g1 --s3-location bucket=s3-groupe1,bundleType=zip,key=bundle.zip --region eu-north-1
     only:
         - dylan
