@@ -7,8 +7,8 @@ stages:
 Push-to-s3:
     stage: push
     script:
-        - export DYLAN_AWS_ACCESS_KEY_ID
-        - export DYLAN_AWS_SECRET_ACCESS_KEY
+        - export AWS_ACCESS_KEY_ID
+        - export AWS_SECRET_ACCESS_KEY
         - cp ./docker_images/srv_php/install_wp-cli.sh ./aws/scripts/install_wp-cli.sh
         - sed -i -e '/exec "$@"/d' ./aws/scripts/install_wp-cli.sh
         - aws --version
