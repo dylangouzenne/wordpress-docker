@@ -4,7 +4,7 @@
 
 MYSQL_HOST="db-groupe1.cycsrehdk0xg.eu-north-1.rds.amazonaws.com:3306"
 MYSQL_USER="groupe1" # valeur a remplacer par des param aws ssm
-MYSQL_PASSWORD=$(aws ssm get-parameter --region=eu-north-1 --name "db_password_groupe_1" --with-decryption --output json | jq -r '.Parameter.Value')
+MYSQL_PASSWORD=$(aws ssm get-parameter --region=eu-north-1 --name "db_password_groupe_1_dylan" --with-decryption --output json | jq -r '.Parameter.Value')
 MYSQL_DATABASE="wordpress_prod"
 MYSQL_TABLE_PREFIX="wp_"
 
