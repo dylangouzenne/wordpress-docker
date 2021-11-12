@@ -1,6 +1,10 @@
 version: 0.0
 os: linux
 
+files:
+  - source: scripts/install_wp-cli.sh 
+    destination: /var/www/html
+
 hooks:
 
   ApplicationStop:
